@@ -14,9 +14,7 @@ pipeline{
     }
     stage('Terraform code exucution'){
       steps{
-        sh "terraform init"
-        sh "terraform plan"
-        sh "terraform apply -auto-approve"
+        sh "aws lambda create-function --function-name my-function --runtime python3.9 --timeout 840 --zip-file file://my-function.zip --handler my-function.lambda_handler  --role arn:aws:iam::748834350686:role/demo-Role"
       }
     }
     stage('Cleaning WS1'){
