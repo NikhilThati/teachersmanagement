@@ -14,7 +14,7 @@ pipeline{
     }
     stage('Terraform code exucution'){
       steps{
-        sh "aws lambda create-function --function-name my-function --runtime python3.9 --timeout 840 --zip-file fileb://my-function.zip --handler my-function.lambda_handler  --role arn:aws:iam::748834350686:role/demo-Role"
+        sh "aws lambda create-function --function-name my-function --runtime python3.9 --timeout 840 --zip-file fileb://my-function.zip --handler my-function.lambda_handler  --role arn:aws:iam::748834350686:role/demo-Role --region us-east-2"
       }
     }
     stage('Cleaning WS1'){
